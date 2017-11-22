@@ -6,12 +6,14 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Created by rajeevkumarsingh on 22/11/17.
  */
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,7 +31,7 @@ public class User {
     @ElementCollection
     @CollectionTable(name = "user_phone_numbers", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "phone_number")
-    private Set<String> phoneNumbers;
+    private Set<String> phoneNumbers = new HashSet<>();
 
     @Valid
     @ElementCollection
@@ -38,7 +40,19 @@ public class User {
             @AttributeOverride(name = "addressLine1", column = @Column(name = "address1")),
             @AttributeOverride(name = "addressLine2", column = @Column(name = "address2"))
     })
-    private Set<Address> addresses;
+    private Set<Address> addresses = new HashSet<>();
+
+
+    public User() {
+
+    }
+
+    public User(String name, String email, Set<String> phoneNumbers, Set<Address> addresses) {
+        this.name = name;
+        this.email = email;
+        this.phoneNumbers = phoneNumbers;
+        this.addresses = addresses;
+    }
 
     public Long getId() {
         return id;
