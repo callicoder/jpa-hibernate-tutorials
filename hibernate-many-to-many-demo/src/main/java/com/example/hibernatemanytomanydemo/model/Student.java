@@ -27,7 +27,7 @@ public class Student {
     @Size(max = 100)
     private String email;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "enrolments",
             joinColumns = { @JoinColumn(name = "student_id") },
             inverseJoinColumns = { @JoinColumn(name = "course_id") })
