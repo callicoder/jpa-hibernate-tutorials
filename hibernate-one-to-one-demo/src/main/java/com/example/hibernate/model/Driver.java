@@ -17,12 +17,12 @@ public class Driver {
     private Long id;
 
     @NotBlank
-    @Size(max = 65)
+    @Size(max = 100)
     private String name;
 
     @NotBlank
     @Email
-    @Size(max = 50)
+    @Size(max = 100)
     private String email;
 
     @NotBlank
@@ -31,8 +31,7 @@ public class Driver {
 
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
-            mappedBy = "driver",
-            optional = false)
+            mappedBy = "driver")
     private DrivingLicense drivingLicense;
 
     // Hibernate requires a no-arg constructor

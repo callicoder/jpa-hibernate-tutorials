@@ -29,7 +29,7 @@ public class DrivingLicense {
     private Date expiryDate;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "driver_id", nullable = false) // You can also use @PrimaryKeyJoinColumn here
+    @JoinColumn(name = "driver_id", nullable = false)
     private Driver driver;
 
     public DrivingLicense() {

@@ -33,7 +33,8 @@ public class HibernateOneToOneDemoApplication implements CommandLineRunner {
 	    //=========================================
 
 	    // Create a Driver instance
-		Driver driver = new Driver("Rajeev Kumar Singh", "rajeev@callicoder.com", "+91-9999999999");
+		Driver driver = new Driver("Rajeev Kumar Singh", "rajeev@callicoder.com",
+				"+91-9999999999");
 
 		// Create a Driving License instance
 		Calendar issueDate = Calendar.getInstance();
@@ -42,7 +43,8 @@ public class HibernateOneToOneDemoApplication implements CommandLineRunner {
 		Calendar expiryDate = Calendar.getInstance();
 		expiryDate.set(2027, 7, 21);
 
-		DrivingLicense drivingLicense = new DrivingLicense("MH-383321-323-8080", issueDate.getTime(), expiryDate.getTime());
+		DrivingLicense drivingLicense = new DrivingLicense("MH-383321-323-8080",
+				issueDate.getTime(), expiryDate.getTime());
 
 		// Set child reference(drivingLicense) in parent entity(driver)
         driver.setDrivingLicense(drivingLicense);
