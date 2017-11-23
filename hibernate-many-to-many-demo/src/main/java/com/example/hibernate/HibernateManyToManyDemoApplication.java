@@ -1,9 +1,9 @@
 package com.example.hibernate;
 
-import com.example.hibernate.model.Course;
-import com.example.hibernate.model.Student;
-import com.example.hibernate.repository.CourseRepository;
-import com.example.hibernate.repository.StudentRepository;
+import com.example.hibernate.model.Post;
+import com.example.hibernate.model.Tag;
+import com.example.hibernate.repository.PostRepository;
+import com.example.hibernate.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,10 +15,10 @@ import java.util.Calendar;
 public class HibernateManyToManyDemoApplication implements CommandLineRunner {
 
 	@Autowired
-	private StudentRepository studentRepository;
+	private TagRepository tagRepository;
 
 	@Autowired
-	private CourseRepository courseRepository;
+	private PostRepository postRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(HibernateManyToManyDemoApplication.class, args);
@@ -26,20 +26,33 @@ public class HibernateManyToManyDemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		studentRepository.deleteAllInBatch();
-		courseRepository.deleteAllInBatch();
+		// Cleanup the tables
+		postRepository.deleteAllInBatch();
+		tagRepository.deleteAllInBatch();
 
-		// Create a Student
-		Student student = studentRepository.save(new Student("Rajeev Kumar Singh", "rajeev@callicoder.com"));
+		// =======================================
 
-		// Create a Course
-		Calendar courseStartDate = Calendar.getInstance();
-		Calendar courseEndDate = Calendar.getInstance();
-		courseEndDate.add(Calendar.MONTH, 6);
-		Course course = courseRepository.save(new Course("Algorithms 101", courseStartDate.getTime(), courseEndDate.getTime()));
+		// Create a Post
+		Post post = new Post("Hibernate Many to Many Example with Spring Boot",
+				"Learn how to map a many to many relationship using hibernate",
+				"Entire Post content with Sample code");
 
-		// Enrol the Student in the Course
-		student.getCourses().add(course);
-		studentRepository.save(student);
+		// Create two tags
+		Tag tag1 = new Tag("Spring Boot");
+		Tag tag2 = new Tag("Hibernate");
+
+
+		// Add tag references in the post
+		post.getTags().add(tag1);
+		post.getTags().add(tag2);
+
+		// Add post reference in the tags
+		tag1.getPosts().add(post);
+		tag2.getPosts().add(post);
+
+		postRepository.save(post);
+
+		// =======================================
+
 	}
 }

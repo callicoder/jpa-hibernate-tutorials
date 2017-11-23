@@ -1,6 +1,6 @@
 package com.example.hibernate.repository;
 
-import com.example.hibernate.model.Student;
+import com.example.hibernate.model.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * Created by rajeevkumarsingh on 22/11/17.
  */
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long> {
+public interface PostRepository extends JpaRepository<Post, Long> {
 
 }
