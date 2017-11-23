@@ -24,10 +24,15 @@ public class HibernateOneToManyDemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		// Cleanup Database tables
 		commentRepository.deleteAllInBatch();
 		postRepository.deleteAllInBatch();
 
-		Post post = new Post("Hibernate One-To-Many Mapping Example", "Learn how to use one to many mapping in hibernate", "Entire Post Content with sample code");
+		// ======================================
+
+		Post post = new Post("Hibernate One-To-Many Mapping Example",
+				"Learn how to use one to many mapping in hibernate",
+				"Entire Post Content with sample code");
 
 		Comment comment1 = new Comment("Greate Post!");
 		comment1.setPost(post);
@@ -39,5 +44,8 @@ public class HibernateOneToManyDemoApplication implements CommandLineRunner {
 		post.getComments().add(comment2);
 
 		postRepository.save(post);
+
+		// ======================================
+
 	}
 }

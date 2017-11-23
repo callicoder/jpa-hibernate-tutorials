@@ -3,9 +3,7 @@ package com.example.hibernate.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by rajeevkumarsingh on 21/11/17.
@@ -41,7 +39,7 @@ public class Post {
             fetch = FetchType.LAZY,
             mappedBy = "post",
             orphanRemoval = true)
-    private List<Comment> comments = new ArrayList<>();
+    private Set<Comment> comments = new HashSet<>();
 
     public Post() {
 
@@ -101,11 +99,11 @@ public class Post {
         this.lastUpdatedAt = lastUpdatedAt;
     }
 
-    public List<Comment> getComments() {
+    public Set<Comment> getComments() {
         return comments;
     }
 
-    public void setComments(List<Comment> comments) {
+    public void setComments(Set<Comment> comments) {
         this.comments = comments;
     }
 }
