@@ -37,8 +37,7 @@ public class Post {
 
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
-            mappedBy = "post",
-            orphanRemoval = true)
+            mappedBy = "post")
     private Set<Comment> comments = new HashSet<>();
 
     public Post() {

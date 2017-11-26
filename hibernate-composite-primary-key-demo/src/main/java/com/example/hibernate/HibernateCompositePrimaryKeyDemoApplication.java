@@ -20,10 +20,21 @@ public class HibernateCompositePrimaryKeyDemoApplication implements CommandLineR
 
 	@Override
 	public void run(String... args) throws Exception {
+		// Cleanup employees table
 		employeeRepository.deleteAllInBatch();
 
-		Employee employee = new Employee(new EmployeeIdentity("E-123", "D-457"), "Rajeev Kumar Singh", "rajeev@callicoder.com", "+91-9999999999");
+		// Insert a new Employee in the database
+		Employee employee = new Employee(new EmployeeIdentity("E-123", "D-457"),
+				"Rajeev Kumar Singh",
+				"rajeev@callicoder.com",
+				"+91-9999999999");
 
 		employeeRepository.save(employee);
+
+		// Retrieving an Employee Record with the composite primary key
+		employeeRepository.findOne(new EmployeeIdentity("E-123", "D-457"));
+
+		// Retrieving all the employees of a particular company
+		employeeRepository.findByEmployeeIdentityCompanyId("D-457");
 	}
 }

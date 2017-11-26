@@ -2,6 +2,7 @@ package com.example.hibernate.model;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by rajeevkumarsingh on 22/11/17.
@@ -9,8 +10,13 @@ import javax.validation.constraints.NotNull;
 @Embeddable
 public class Name {
     @NotNull
+    @Size(max = 40)
     private String firstName;
+
+    @Size(max = 40)
     private String middleName;
+
+    @Size(max = 40)
     private String lastName;
 
     public Name() {

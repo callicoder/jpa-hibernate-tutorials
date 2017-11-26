@@ -3,7 +3,6 @@ package com.example.hibernate.model;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -16,16 +15,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Valid
     @Embedded
     private Name name;
 
     @NotNull
     @Email
+    @Column(unique = true)
     private String email;
 
-    @Valid
     @Embedded
+    @AttributeOverrides(value = {
+        @AttributeOverride(name = "addressLine1", column = @Column(name = "houseNumber")),
+        @AttributeOverride(name = "addressLine2", column = @Column(name = "street"))
+    })
     private Address address;
 
     public User() {

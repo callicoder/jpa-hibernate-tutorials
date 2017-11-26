@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 public class Employee {
 
     @EmbeddedId
-    private EmployeeIdentity identity;
+    private EmployeeIdentity employeeIdentity;
 
     @NotNull
     private String name;
@@ -30,19 +30,19 @@ public class Employee {
 
     }
 
-    public Employee(EmployeeIdentity identity, String name, String email, String phoneNumber) {
-        this.identity = identity;
+    public Employee(EmployeeIdentity employeeIdentity, String name, String email, String phoneNumber) {
+        this.employeeIdentity = employeeIdentity;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
 
-    public EmployeeIdentity getIdentity() {
-        return identity;
+    public EmployeeIdentity getEmployeeIdentity() {
+        return employeeIdentity;
     }
 
-    public void setIdentity(EmployeeIdentity identity) {
-        this.identity = identity;
+    public void setEmployeeIdentity(EmployeeIdentity employeeIdentity) {
+        this.employeeIdentity = employeeIdentity;
     }
 
     public String getName() {

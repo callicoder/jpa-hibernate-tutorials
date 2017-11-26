@@ -10,34 +10,34 @@ import java.io.Serializable;
 @Embeddable
 public class EmployeeIdentity implements Serializable {
     @NotNull
-    private String employeeCode;
+    private String employeeId;
 
     @NotNull
-    private String companyCode;
+    private String companyId;
 
     public EmployeeIdentity() {
 
     }
 
-    public EmployeeIdentity(String employeeCode, String companyCode) {
-        this.employeeCode = employeeCode;
-        this.companyCode = companyCode;
+    public EmployeeIdentity(String employeeId, String companyId) {
+        this.employeeId = employeeId;
+        this.companyId = companyId;
     }
 
-    public String getEmployeeCode() {
-        return employeeCode;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployeeCode(String employeeCode) {
-        this.employeeCode = employeeCode;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public String getCompanyCode() {
-        return companyCode;
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setCompanyCode(String companyCode) {
-        this.companyCode = companyCode;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
     @Override
@@ -47,14 +47,14 @@ public class EmployeeIdentity implements Serializable {
 
         EmployeeIdentity that = (EmployeeIdentity) o;
 
-        if (!employeeCode.equals(that.employeeCode)) return false;
-        return companyCode.equals(that.companyCode);
+        if (!employeeId.equals(that.employeeId)) return false;
+        return companyId.equals(that.companyId);
     }
 
     @Override
     public int hashCode() {
-        int result = employeeCode.hashCode();
-        result = 31 * result + companyCode.hashCode();
+        int result = employeeId.hashCode();
+        result = 31 * result + companyId.hashCode();
         return result;
     }
 }
