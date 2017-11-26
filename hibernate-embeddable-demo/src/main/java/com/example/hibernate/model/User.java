@@ -25,7 +25,7 @@ public class User {
 
     @Embedded
     @AttributeOverrides(value = {
-        @AttributeOverride(name = "addressLine1", column = @Column(name = "houseNumber")),
+        @AttributeOverride(name = "addressLine1", column = @Column(name = "house_number")),
         @AttributeOverride(name = "addressLine2", column = @Column(name = "street"))
     })
     private Address address;

@@ -3,7 +3,6 @@ package com.example.hibernate.model;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
@@ -33,12 +32,11 @@ public class User {
     @Column(name = "phone_number")
     private Set<String> phoneNumbers = new HashSet<>();
 
-    @Valid
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "user_addresses", joinColumns = @JoinColumn(name = "user_id"))
     @AttributeOverrides({
-            @AttributeOverride(name = "addressLine1", column = @Column(name = "address1")),
-            @AttributeOverride(name = "addressLine2", column = @Column(name = "address2"))
+            @AttributeOverride(name = "addressLine1", column = @Column(name = "house_number")),
+            @AttributeOverride(name = "addressLine2", column = @Column(name = "street"))
     })
     private Set<Address> addresses = new HashSet<>();
 

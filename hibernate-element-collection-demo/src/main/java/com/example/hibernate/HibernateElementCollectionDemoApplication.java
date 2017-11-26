@@ -23,17 +23,22 @@ public class HibernateElementCollectionDemoApplication implements CommandLineRun
 
 	@Override
 	public void run(String... args) throws Exception {
-		userRepository.deleteAllInBatch();
+		// Cleanup database tables.
+		userRepository.deleteAll();
 
-		Set<String> phoneNumbers = new HashSet<>();
+        // Insert a user with multiple phone numbers and addresses.
+        Set<String> phoneNumbers = new HashSet<>();
 		phoneNumbers.add("+91-9999999999");
 		phoneNumbers.add("+91-9898989898");
 
 		Set<Address> addresses = new HashSet<>();
-		addresses.add(new Address("747", "Golf View Road", "Kodihalli", "Bangalore", "India", "560008"));
-		addresses.add(new Address("Tower C", "Diamong District", "Domlur", "Bangalore", "India", "560008"));
+		addresses.add(new Address("747", "Golf View Road", "Bangalore",
+                "Karnataka", "India", "560008"));
+		addresses.add(new Address("Plot No 44", "Electronic City", "Bangalore",
+                "Karnataka", "India", "560001"));
 
-		User user = new User("Rajeev Kumar Singh", "rajeevs@flock.com", phoneNumbers, addresses);
+		User user = new User("Rajeev Kumar Singh", "rajeev@callicoder.com",
+                phoneNumbers, addresses);
 
 		userRepository.save(user);
 	}
