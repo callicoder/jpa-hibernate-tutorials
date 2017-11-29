@@ -1,5 +1,8 @@
 package com.example.hibernate.model;
 
+import org.hibernate.annotations.NaturalId;
+
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -21,9 +24,11 @@ public class Employee {
 
     @NotNull
     @Size(max = 100)
+    @NaturalId
     private String email;
 
     @Size(max = 15)
+    @Column(name = "phone_number", unique = true)
     private String phoneNumber;
 
     public Employee() {

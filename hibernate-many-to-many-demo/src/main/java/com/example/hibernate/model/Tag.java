@@ -1,5 +1,7 @@
 package com.example.hibernate.model;
 
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -18,6 +20,7 @@ public class Tag {
 
     @NotNull
     @Size(max = 100)
+    @NaturalId
     private String name;
 
     @ManyToMany(fetch = FetchType.LAZY,

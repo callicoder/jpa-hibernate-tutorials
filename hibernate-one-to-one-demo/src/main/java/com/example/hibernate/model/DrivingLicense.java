@@ -1,7 +1,5 @@
 package com.example.hibernate.model;
 
-import org.hibernate.validator.constraints.NotBlank;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -16,16 +14,18 @@ public class DrivingLicense {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
-    @Column(unique = true)
+    @NotNull
+    @Column(name = "license_number", unique = true)
     private String licenseNumber;
 
     @NotNull
     @Temporal(TemporalType.DATE)
+    @Column(name = "issue_date")
     private Date issueDate;
 
     @NotNull
     @Temporal(TemporalType.DATE)
+    @Column(name = "expiry_date")
     private Date expiryDate;
 
     @OneToOne(fetch = FetchType.LAZY)

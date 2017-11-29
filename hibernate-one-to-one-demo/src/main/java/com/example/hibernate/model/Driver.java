@@ -1,9 +1,9 @@
 package com.example.hibernate.model;
 
 import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -16,17 +16,19 @@ public class Driver {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotBlank
+    @NotNull
     @Size(max = 100)
     private String name;
 
-    @NotBlank
+    @NotNull
     @Email
     @Size(max = 100)
+    @Column(unique = true)
     private String email;
 
-    @NotBlank
+    @NotNull
     @Size(max = 15)
+    @Column(name = "phone_number", unique = true)
     private String phoneNumber;
 
     @OneToOne(fetch = FetchType.LAZY,

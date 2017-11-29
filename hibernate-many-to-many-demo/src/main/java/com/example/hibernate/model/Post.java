@@ -19,6 +19,7 @@ public class Post {
 
     @NotNull
     @Size(max = 100)
+    @Column(unique = true)
     private String title;
 
     @NotNull
@@ -31,10 +32,12 @@ public class Post {
 
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "posted_at")
     private Date postedAt = new Date();
 
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "last_updated_at")
     private Date lastUpdatedAt = new Date();
 
 
