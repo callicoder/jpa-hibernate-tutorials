@@ -1,13 +1,15 @@
 package com.example.hibernate;
 
-import com.example.hibernate.model.Driver;
-import com.example.hibernate.model.DrivingLicense;
-import com.example.hibernate.repository.DriverRepository;
-import com.example.hibernate.repository.DrivingLicenseRepository;
+import com.example.hibernate.model.Gender;
+import com.example.hibernate.model.User;
+import com.example.hibernate.model.UserProfile;
+import com.example.hibernate.repository.UserRepository;
+import com.example.hibernate.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Calendar;
 
@@ -15,10 +17,10 @@ import java.util.Calendar;
 public class HibernateOneToOneDemoApplication implements CommandLineRunner {
 
 	@Autowired
-	private DriverRepository driverRepository;
+	private UserRepository userRepository;
 
 	@Autowired
-    private DrivingLicenseRepository drivingLicenseRepository;
+    private UserProfileRepository userProfileRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(HibernateOneToOneDemoApplication.class, args);
@@ -26,35 +28,36 @@ public class HibernateOneToOneDemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-	    // Clean up database tables
-	    drivingLicenseRepository.deleteAllInBatch();
-	    driverRepository.deleteAllInBatch();
+		// Clean up database tables
+		userProfileRepository.deleteAllInBatch();
+		userRepository.deleteAllInBatch();
 
-	    //=========================================
+		//=========================================
 
-	    // Create a Driver instance
-		Driver driver = new Driver("Rajeev Kumar Singh", "rajeev@callicoder.com",
-				"+91-9999999999");
+		// Create a User instance
+		User user = new User("Rajeev", "Singh", "rajeev@callicoder.com",
+				"MY_SUPER_SECRET_PASSWORD");
 
-		// Create a Driving License instance
-		Calendar issueDate = Calendar.getInstance();
-		issueDate.set(2017, 7, 21);
+		Calendar dateOfBirth = Calendar.getInstance();
+		dateOfBirth.set(1992, 7, 21);
 
-		Calendar expiryDate = Calendar.getInstance();
-		expiryDate.set(2027, 7, 21);
+		// Create a UserProfile instance
+		UserProfile userProfile = new UserProfile("+91-8197882053", Gender.MALE, dateOfBirth.getTime(),
+				"747", "2nd Cross", "Golf View Road, Kodihalli", "Bangalore",
+				"Karnataka", "India", "560008");
 
-		DrivingLicense drivingLicense = new DrivingLicense("MH-383321-323-8080",
-				issueDate.getTime(), expiryDate.getTime());
 
-		// Set child reference(drivingLicense) in parent entity(driver)
-        driver.setDrivingLicense(drivingLicense);
+		// Set child reference(userProfile) in parent entity(user)
+		user.setUserProfile(userProfile);
 
-        // Set parent reference(driver) in child entity(drivingLicense)
-        drivingLicense.setDriver(driver);
+		// Set parent reference(user) in child entity(userProfile)
+		userProfile.setUser(user);
 
-        // Save Parent Reference (which will save the child as well)
-		driverRepository.save(driver);
+		// Save Parent Reference (which will save the child as well)
+		userRepository.save(user);
 
-        //=========================================
+		//=========================================
 	}
+
+
 }

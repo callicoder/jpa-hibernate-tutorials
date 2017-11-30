@@ -1,6 +1,6 @@
 package com.example.hibernate.repository;
 
-import com.example.hibernate.model.Driver;
+import com.example.hibernate.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * Created by rajeevkumarsingh on 20/11/17.
  */
 @Repository
-public interface DriverRepository extends JpaRepository<Driver, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }
