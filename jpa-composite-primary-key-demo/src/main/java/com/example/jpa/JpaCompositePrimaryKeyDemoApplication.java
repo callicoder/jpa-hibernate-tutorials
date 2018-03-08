@@ -32,7 +32,7 @@ public class JpaCompositePrimaryKeyDemoApplication implements CommandLineRunner 
 		employeeRepository.save(employee);
 
 		// Retrieving an Employee Record with the composite primary key
-		employeeRepository.findOne(new EmployeeIdentity("E-123", "D-457"));
+		employeeRepository.findById(new EmployeeIdentity("E-123", "D-457"));
 
 		// Retrieving all the employees of a particular company
 		employeeRepository.findByEmployeeIdentityCompanyId("D-457");

@@ -12,7 +12,7 @@ import java.util.Date;
 @Table(name = "user_profiles")
 public class UserProfile implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "phone_number")

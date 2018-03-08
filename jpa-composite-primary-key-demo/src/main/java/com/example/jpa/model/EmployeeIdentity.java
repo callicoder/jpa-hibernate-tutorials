@@ -2,6 +2,7 @@ package com.example.jpa.model;
 
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -10,9 +11,11 @@ import java.io.Serializable;
 @Embeddable
 public class EmployeeIdentity implements Serializable {
     @NotNull
+    @Size(max = 20)
     private String employeeId;
 
     @NotNull
+    @Size(max = 20)
     private String companyId;
 
     public EmployeeIdentity() {
