@@ -1,6 +1,6 @@
 package com.example.jpa.controller;
 
-import com.example.jpa.exception.ResourceNotFoundExcption;
+import com.example.jpa.exception.ResourceNotFoundException;
 import com.example.jpa.model.Post;
 import com.example.jpa.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class PostController {
             post.setDescription(postRequest.getDescription());
             post.setContent(postRequest.getContent());
             return postRepository.save(post);
-        }).orElseThrow(() -> new ResourceNotFoundExcption("PostId " + postId + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
 
 
@@ -43,7 +43,7 @@ public class PostController {
         return postRepository.findById(postId).map(post -> {
             postRepository.delete(post);
             return ResponseEntity.ok().build();
-        }).orElseThrow(() -> new ResourceNotFoundExcption("PostId " + postId + " not found"));
+        }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
     }
 
 }
