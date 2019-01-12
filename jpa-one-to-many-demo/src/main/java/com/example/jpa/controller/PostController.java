@@ -15,7 +15,7 @@ import javax.validation.Valid;
 public class PostController {
 
     @Autowired
-    PostRepository postRepository;
+    private PostRepository postRepository;
 
     @GetMapping("/posts")
     public Page<Post> getAllPosts(Pageable pageable) {
