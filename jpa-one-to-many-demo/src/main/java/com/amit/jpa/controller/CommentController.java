@@ -1,9 +1,10 @@
-package com.example.jpa.controller;
+package com.amit.jpa.controller;
 
-import com.example.jpa.exception.ResourceNotFoundException;
-import com.example.jpa.model.Comment;
-import com.example.jpa.repository.CommentRepository;
-import com.example.jpa.repository.PostRepository;
+import com.amit.jpa.exception.ResourceNotFoundException;
+import com.amit.jpa.model.Comment;
+import com.amit.jpa.repository.CommentRepository;
+import com.amit.jpa.repository.PostRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,8 +12,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-
+/**
+*
+* @author Amit Patil
+*
+**/
 @RestController
+@RequestMapping("/v1")
 public class CommentController {
 
     @Autowired

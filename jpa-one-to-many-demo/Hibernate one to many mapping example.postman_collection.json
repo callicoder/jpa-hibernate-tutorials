@@ -1,0 +1,183 @@
+{
+	"id": "50f06778-83f3-3359-8bc5-cc3d0bdf582d",
+	"name": "Hibernate one to many mapping example",
+	"description": "",
+	"order": [
+		"15826d80-cf0a-78c9-1acf-36fef67d89fc",
+		"095e803e-c84e-6e66-c785-83930184de23",
+		"1086cdf7-fb9e-305a-1118-b4a1e3335453",
+		"df740598-560e-5b22-8c65-f719411d1d24"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1569687636029,
+	"owner": "2037757",
+	"public": false,
+	"requests": [
+		{
+			"id": "095e803e-c84e-6e66-c785-83930184de23",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/posts?page=0&size=3&sort=createdAt,desc",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "size",
+					"value": "3",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "sort",
+					"value": "createdAt,desc",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1569689480899,
+			"name": "Retrieve all posts",
+			"description": "",
+			"collectionId": "50f06778-83f3-3359-8bc5-cc3d0bdf582d",
+			"responses": []
+		},
+		{
+			"id": "1086cdf7-fb9e-305a-1118-b4a1e3335453",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/posts/1/comments",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "50f06778-83f3-3359-8bc5-cc3d0bdf582d",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Create comment",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569689148814,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"text\": \"it's nice post\"\n}"
+		},
+		{
+			"id": "15826d80-cf0a-78c9-1acf-36fef67d89fc",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/posts",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "50f06778-83f3-3359-8bc5-cc3d0bdf582d",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Create post",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569687903992,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"title\": \"post 1\",\n\t\"description\": \"post 1 description\",\n\t\"content\": \"post 1 content\"\n}"
+		},
+		{
+			"id": "df740598-560e-5b22-8c65-f719411d1d24",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/posts/1/comments?page=0&size=3&sort=createdAt,desc",
+			"queryParams": [
+				{
+					"key": "page",
+					"value": "0",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "size",
+					"value": "3",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "sort",
+					"value": "createdAt,desc",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "50f06778-83f3-3359-8bc5-cc3d0bdf582d",
+			"data": null,
+			"dataMode": "params",
+			"name": "Retrieve all comments of a post",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569689513143,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

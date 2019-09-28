@@ -1,16 +1,18 @@
-package com.example.jpa.repository;
+package com.amit.jpa.repository;
 
-import com.example.jpa.model.Comment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import com.amit.jpa.model.Comment;
 
+import java.util.Optional;
 /**
- * Created by rajeevkumarsingh on 21/11/17.
- */
+*
+* @author Amit Patil
+*
+**/
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Long> {
     Page<Comment> findByPostId(Long postId, Pageable pageable);

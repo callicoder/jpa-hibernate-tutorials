@@ -1,4 +1,4 @@
-package com.example.jpa.model;
+package com.amit.jpa.model;
 
 import com.fasterxml.jackson.annotation.*;
 
@@ -7,10 +7,11 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
 /**
- * Created by rajeevkumarsingh on 21/11/17.
- */
+*
+* @author Amit Patil
+*
+**/
 @Entity
 @Table(name = "comments")
 public class Comment extends AuditModel {

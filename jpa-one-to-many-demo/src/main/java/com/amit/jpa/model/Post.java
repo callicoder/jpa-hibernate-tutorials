@@ -1,12 +1,13 @@
-package com.example.jpa.model;
+package com.amit.jpa.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
 /**
- * Created by rajeevkumarsingh on 21/11/17.
- */
+*
+* @author Amit Patil
+*
+**/
 @Entity
 @Table(name = "posts")
 public class Post extends AuditModel {
@@ -25,6 +26,7 @@ public class Post extends AuditModel {
 
     @NotNull
     @Lob
+//    @Column(name = "content", nullable = false, columnDefinition = "CLOB")
     private String content;
 
     public Long getId() {

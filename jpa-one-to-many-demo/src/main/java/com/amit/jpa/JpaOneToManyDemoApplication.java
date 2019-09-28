@@ -1,9 +1,13 @@
-package com.example.jpa;
+package com.amit.jpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-
+/**
+*
+* @author Amit Patil
+*
+**/
 @SpringBootApplication
 @EnableJpaAuditing
 public class JpaOneToManyDemoApplication {
