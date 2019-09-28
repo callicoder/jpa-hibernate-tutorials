@@ -1,0 +1,108 @@
+{
+	"id": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+	"name": "Hibernate one to one mapping examle",
+	"description": "",
+	"order": [
+		"b170f4ea-e3f0-fbaa-51fa-9a1e9777118d",
+		"24b1fa01-f92d-c4e1-c915-85be4819146b",
+		"d8cbed58-b687-7ee4-08f0-b33a4233b6b1"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1569653627690,
+	"owner": "2037757",
+	"public": false,
+	"requests": [
+		{
+			"id": "24b1fa01-f92d-c4e1-c915-85be4819146b",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/users",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Retrieve all user details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569653756579,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b170f4ea-e3f0-fbaa-51fa-9a1e9777118d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/user",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Create user details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569653662501,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"id\": \"\",\n\t\"firstName\": \"Ranjit\",\n\t\"lastName\": \"Patil\",\n\t\"email\": \"Ranjit@gmail.com\",\n\t\"password\": \"pass123\",\n\t\"userProfile\": {\n\t\t\"id\": \"\",\n\t\t\"phoneNumber\": \"+91-7829190061\",\n\t\t\"gender\": \"MALE\",\n\t\t\"dateOfBirth\": \"2019-09-28\",\n\t\t\"address1\": \"some dummy address1 about my residence\",\n\t\t\"address2\": \"some dummy adress2 \",\n\t\t\"street\": \"some dummy street\",\n\t\t\"city\": \"Bangalore\",\n\t\t\"state\": \"Karnataka\",\n\t\t\"country\": \"India\",\n\t\t\"zipCode\": \"560100\"\n\t}\n}"
+		},
+		{
+			"id": "d8cbed58-b687-7ee4-08f0-b33a4233b6b1",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/user/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Retrieve single user details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569655016616,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

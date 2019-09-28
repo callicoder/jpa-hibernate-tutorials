@@ -1,18 +1,28 @@
-package com.example.jpa.model;
+package com.amit.jpa.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.io.Serializable;
 
 /**
- * Created by rajeevkumarsingh on 20/11/17.
- */
+*
+* @author Amit Patil
+*
+**/
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7529424835544174898L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -35,9 +45,10 @@ public class User implements Serializable {
     @Size(max = 128)
     private String password;
 
+    @JsonManagedReference
     @OneToOne(fetch = FetchType.LAZY,
             cascade =  CascadeType.ALL,
-            mappedBy = "user")
+            mappedBy = "user", orphanRemoval = true)
     private UserProfile userProfile;
 
     // Hibernate requires a no-arg constructor
