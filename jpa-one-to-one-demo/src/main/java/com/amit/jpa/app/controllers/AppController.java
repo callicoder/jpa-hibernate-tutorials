@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.amit.jpa.model.User;
+import com.amit.jpa.model.UserProfile;
 import com.amit.jpa.service.AppService;
 
 /**
@@ -38,5 +39,20 @@ public class AppController {
 	@RequestMapping(value = "/users", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<User> getAllUserDetails() {
 		return appService.getAllUserDetails();
+	}
+	
+	@RequestMapping(value = "/userProfile", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserProfile saveUserProfileDetails(@RequestBody UserProfile userProfile) {
+		return appService.saveUserProfile(userProfile);
+	}
+	
+	@RequestMapping(value = "/userProfile/{userProfileId}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserProfile getUserProfileDetails(@PathVariable("userProfileId") Long id) {
+		return appService.getUserProfileDetails(id);
+	}
+	
+	@RequestMapping(value = "/userProfiles", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<UserProfile> getAllUserProfiles() {
+		return appService.getAllUserProfileDetails();
 	}
 }

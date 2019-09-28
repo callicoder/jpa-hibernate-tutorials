@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.amit.jpa.model.User;
+import com.amit.jpa.model.UserProfile;
+import com.amit.jpa.repository.UserProfileRepository;
 import com.amit.jpa.repository.UserRepository;
 
 /**
@@ -17,6 +19,9 @@ public class AppService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	@Autowired
+	private UserProfileRepository userProfileRepository;
+	
 	public User saveUserDetails(User user) {
 		return userRepository.save(user);
 	}
@@ -27,6 +32,18 @@ public class AppService {
 	
 	public List<User> getAllUserDetails() {
 		return userRepository.findAll();
+	}
+	
+	public UserProfile saveUserProfile(UserProfile userProfile) {
+		return userProfileRepository.save(userProfile);
+	}
+	
+	public UserProfile getUserProfileDetails(Long id) {
+		return userProfileRepository.findById(id).get();
+	}
+	
+	public List<UserProfile> getAllUserProfileDetails() {
+		return userProfileRepository.findAll();
 	}
 }
 	
