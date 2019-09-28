@@ -1,12 +1,15 @@
-package com.example.jpa.repository;
+package com.amit.jpa.repository;
 
-import com.example.jpa.model.UserProfile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.amit.jpa.model.UserProfile;
+
 /**
- * Created by rajeevkumarsingh on 20/11/17.
- */
+*
+* @author Amit Patil
+*
+**/
 @Repository
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
 

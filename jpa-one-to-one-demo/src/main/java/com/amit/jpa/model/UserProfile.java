@@ -1,17 +1,27 @@
-package com.example.jpa.model;
+package com.amit.jpa.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by rajeevkumarsingh on 20/11/17.
- */
+*
+* @author Amit Patil
+*
+**/
 @Entity
 @Table(name = "user_profiles")
 public class UserProfile implements Serializable {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 3960703238763006209L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -49,6 +59,7 @@ public class UserProfile implements Serializable {
     @Size(max = 32)
     private String zipCode;
 
+    @JsonBackReference
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;

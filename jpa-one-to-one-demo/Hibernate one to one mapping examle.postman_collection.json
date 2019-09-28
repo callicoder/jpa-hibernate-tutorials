@@ -1,0 +1,234 @@
+{
+	"id": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+	"name": "Hibernate one to one mapping examle",
+	"description": "",
+	"order": [
+		"b170f4ea-e3f0-fbaa-51fa-9a1e9777118d",
+		"24b1fa01-f92d-c4e1-c915-85be4819146b",
+		"d8cbed58-b687-7ee4-08f0-b33a4233b6b1",
+		"76f5bc70-ab5e-512d-a4ad-de16007ebb6e",
+		"e0f51fb0-33ae-b787-7208-220ab953b0f0",
+		"17a7b55e-f15e-635e-5a90-b948b263e248",
+		"c246e38e-fa61-e509-2e60-9524566127b4"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1569653627690,
+	"owner": "2037757",
+	"public": false,
+	"requests": [
+		{
+			"id": "17a7b55e-f15e-635e-5a90-b948b263e248",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/userProfile/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Retrieve single userProfile details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569658918810,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "24b1fa01-f92d-c4e1-c915-85be4819146b",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/users",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Retrieve all user details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569653756579,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "76f5bc70-ab5e-512d-a4ad-de16007ebb6e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/userProfile",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": [],
+			"dataMode": "raw",
+			"name": "save new userProfile without actual user association",
+			"description": "user set to null reference",
+			"descriptionFormat": "html",
+			"time": 1569658739461,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\t\"phoneNumber\": \"+91-7829190061\",\n\t\t\"gender\": \"MALE\",\n\t\t\"dateOfBirth\": \"2019-09-28\",\n\t\t\"address1\": \"address1 without user association\",\n\t\t\"address2\": \"some dummy adress2 \",\n\t\t\"street\": \"some dummy street\",\n\t\t\"city\": \"Bangalore\",\n\t\t\"state\": \"Karnataka\",\n\t\t\"country\": \"India\",\n\t\t\"zipCode\": \"560100\",\n\t\t\"user\": null\n}"
+		},
+		{
+			"id": "b170f4ea-e3f0-fbaa-51fa-9a1e9777118d",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/user",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Create user details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569653662501,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"id\": \"\",\n\t\"firstName\": \"Ranjit\",\n\t\"lastName\": \"Patil\",\n\t\"email\": \"Ranjit@gmail.com\",\n\t\"password\": \"pass123\",\n\t\"userProfile\": {\n\t\t\"id\": \"\",\n\t\t\"phoneNumber\": \"+91-7829190061\",\n\t\t\"gender\": \"MALE\",\n\t\t\"dateOfBirth\": \"2019-09-28\",\n\t\t\"address1\": \"some dummy address1 about my residence\",\n\t\t\"address2\": \"some dummy adress2 \",\n\t\t\"street\": \"some dummy street\",\n\t\t\"city\": \"Bangalore\",\n\t\t\"state\": \"Karnataka\",\n\t\t\"country\": \"India\",\n\t\t\"zipCode\": \"560100\"\n\t}\n}"
+		},
+		{
+			"id": "c246e38e-fa61-e509-2e60-9524566127b4",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/userProfiles",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Retrieve All the userProfiles details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569658935643,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "d8cbed58-b687-7ee4-08f0-b33a4233b6b1",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/user/1",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": null,
+			"dataMode": "params",
+			"name": "Retrieve single user details",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1569655016616,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "e0f51fb0-33ae-b787-7208-220ab953b0f0",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/v1/userProfile",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "4df5465b-c7ea-7975-1123-2b3f2ed0f5c7",
+			"data": [],
+			"dataMode": "raw",
+			"name": "save new userProfile with invalid user association",
+			"description": "user details set to empty object",
+			"descriptionFormat": "html",
+			"time": 1569658813570,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\t\"phoneNumber\": \"+91-7829190061\",\n\t\t\"gender\": \"MALE\",\n\t\t\"dateOfBirth\": \"2019-09-28\",\n\t\t\"address1\": \"address1 without user association\",\n\t\t\"address2\": \"some dummy adress2 \",\n\t\t\"street\": \"some dummy street\",\n\t\t\"city\": \"Bangalore\",\n\t\t\"state\": \"Karnataka\",\n\t\t\"country\": \"India\",\n\t\t\"zipCode\": \"560100\",\n\t\t\"user\": {}\n}"
+		}
+	]
+}
